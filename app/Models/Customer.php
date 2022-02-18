@@ -8,6 +8,7 @@ use Illuminate\Database\Eloquent\Model;
 class Customer extends Model
 {
     use HasFactory;
+    protected $fillable = ['name', 'phone', 'email', 'town'];
     public function message(){
         return $this->belongsToMany(Message::class);
     }

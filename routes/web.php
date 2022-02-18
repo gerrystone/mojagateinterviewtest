@@ -14,7 +14,7 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', function () {
-    $customers = \App\Models\Customer::all();
+    $customers = \App\Models\Customer::select(['name', 'email','phone', 'town'])->get();
     return view('welcome', compact('customers'));
 });
 Route::post('add_customer', [\App\Http\Controllers\CustomersController::class, 'add_customer'])->name('add_customer');
